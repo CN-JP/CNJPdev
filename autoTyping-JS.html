@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>autoTyping w.JS</title>
+    <link rel="stylesheet" href="styles-autoType.css">
+  </head>
+
+  <body>
+<div class="container">
+  <h1>I'm skilled in <span class="auto-type"></span></h1>
+</div>
+
+<!-- Typed.JS from MattBoldt on Github -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<!-- myJS -->
+    <script>
+
+      let typed = new Typed(".auto-type", {
+        strings: ["JavaScript", "React", "HTML", "CSS and Sass", "Bootstrap", "SQL", "CLI"],
+        typeSpeed: 150,
+        backSpeed: 150,
+        loop: true
+      })
+
+    </script>
+
+  </body>
+  
+</html>
