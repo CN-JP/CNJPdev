@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CNJP | frontendDev</title>
+  <link rel="icon" type="image/x-icon" href="images/cnjp-toon.png">
 
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,6 +78,7 @@
           <span>L</span>
           <span>L</span>
           <span class="letter"></span>
+          <span>!</span>
         </div>
         <h2 class="about-header">I'm glad you found me ;)</h2>
         <h5 class="about-text">
@@ -112,7 +114,7 @@
           <img src="images/RiskRating-shot.png" class="project-img" alt="RiskRating">
         </a>
         <div class="project-textbox">
-          <p class="project-text">The Risk Rating calculator is a risk assessment and analysis tool.</p>
+          <p class="project-text">RiskAssess is a risk assessment and analysis tool.</p>
           <p class="project-text">{ HTML | CSS | Bootstrap | JavaScript }</p>
         </div>
       </div>
@@ -143,19 +145,29 @@
           <img src="images/SQL-shot.png" class="project-img" alt="SQL">
         </a>
         <div class="project-textbox">
-          <p class="project-text">SQL>MCQ is a test platform to evaluate students' learning on SQL101, a course facilitated by me.</p>
-          <p class="project-text">{ HTML | CSS | JavaScript }</p>
+          <p class="project-text">SQL>MCQ is a test app to evaluate students' learning on SQL101, a course facilitated by me.</p>
+          <p class="project-text">{ HTML | CSS | JavaScript | React.JS }</p>
         </div>
       </div>
-      <div class="col-lg-4 project-each">
+      <!-- <div class="col-lg-4 project-each">
         <a href="#">
           <img src="images/TM-shot.png" class="project-img" alt="">
         </a>
         <div class="project-textbox">
-          <p class="project-text">myPA is time management and organizer application that enhances productivity.</p>
+          <p class="project-text">myPA is a time management and organizer application that enhances productivity.</p>
           <p class="project-text">{ HTML | CSS | Bootstrap | JavaScript }</p>
         </div>
-      </div>
+      </div> -->
+      <!-- 3rd row -->
+      <!-- <div class="col-lg-4 project-each">
+        <a href="#">
+          <img src="images/AfricaInfo-shot.png" class="project-img" alt="">
+        </a>
+        <div class="project-textbox">
+          <p class="project-text">AfricaInfo is an API-driven app that shows the vital info about African countries.</p>
+          <p class="project-text">{ HTML | CSS | Bootstrap | JavaScript | React.JS | API }</p>
+        </div>
+      </div> -->
 
     </div>
   </div>
@@ -167,25 +179,28 @@
       <div class="col-lg-3">
         <img src="images/contactcnjp.png" class="contact-img floating-img" alt="">
       </div>
+
       <div class="col-lg-9">
+        <form onsubmit="sendEmail(); reset(); return false;">
         <h5>You can reach out or drop me a message via the form below;
           or if you'll like to get social, hit any of the social icons in the footer.</h5>
         <div class="row">
           <div class="col-6">
             <div class="mb-3">
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+              <input type="text" class="form-control" id="name" placeholder="Name" required>
             </div>
           </div>
           <div class="col-6">
             <div class="mb-3">
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+              <input type="email" class="form-control" id="email" placeholder="Email" required>
             </div>
           </div>
         </div>
         <div class="mb-3">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Message"></textarea>
+          <textarea class="form-control" id="message" rows="4" placeholder="Message" required></textarea>
         </div>
-        <button type="button" name="button" class="btn about-text">Send</button>
+        <button type="submit" name="button" class="btn about-text">Send</button>
+        </form>
       </div>
 
     </div>
@@ -198,6 +213,45 @@
 
 
   <!-- JS section -->
+
+  <!-- SMTP JS for sending email -->
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script type="text/javascript">
+    function sendEmail() {
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "cnjp.akamnonu@gmail.com",
+        Password: "password",
+        To: 'njp.akamnonu@yahoo.com',
+        From: document.getElementById("email").value,
+        Subject: "CNJPdev - new contact form enquiry",
+        Body: "Name: " + document.getElementById("name").value
+        + "<br /> Email: " document.getElementById("email").value
+        + "<br /> Message: " document.getElementById("message").value
+      }).then(
+        message => alert("Message sent successfully")
+      );
+    }
+  </script>
+
+<!-- SMTP JS format for sending email:  -->
+  <!-- <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script type="text/javascript">
+    function sendEmail() {
+      Email.send({
+        Host: "smtp.yourisp.com",
+        Username: "username",
+        Password: "password",
+        To: 'them@website.com',
+        From: "you@isp.com",
+        Subject: "This is the subject",
+        Body: "And this is the body"
+      }).then(
+        message => alert(message)
+      );
+    }
+  </script> -->
+
 
   <!-- Typed.JS from MattBoldt on Github -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
